@@ -9,6 +9,9 @@
     <% end %>
 
     <%= form_tag("/issue/update") do %>
+
+      <input type="hidden" class="input-text" name="id" value="<%= @issue.id %>"/>
+      
       <div class="form-group">
         <h2><label>タイトル:</label></h2>
         <div class="input-content">

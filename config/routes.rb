@@ -4,5 +4,5 @@ Rails.application.routes.draw do
   get "issue/edit/:id" => "issue#edit"
   get 'issue/new'
   post "issue/create"
-
+  post "issue/update"
 end
