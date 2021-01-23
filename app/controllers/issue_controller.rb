@@ -6,5 +6,6 @@ class IssueController < ApplicationController
   end
 
   def new
+    @issue = Issue.new
   end
 end
