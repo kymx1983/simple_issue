@@ -28,4 +28,8 @@ class IssueController < ApplicationController
       render("issue/new")
     end
   end
+
+  def edit
+    @issue = Issue.find_by(id: params[:id])
+  end
 end

@@ -1,0 +1,45 @@
+<div class="main">
+  <div class="container">
+    <h1>イシュー編集</h1>
+
+    <% @issue.errors.full_messages.each do |message| %>
+      <div class="form-error">
+        <%= message %>
+      </div>
+    <% end %>
+
+    <%= form_tag("/issue/update") do %>
+      <div class="form-group">
+        <h2><label>タイトル:</label></h2>
+        <div class="input-content">
+          <label>
+            <input type="text" class="input-text" name="title" value="<%= @issue.title %>" />
+          </label>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <h2><label>期限:</label></h2>
+        <div class="input-content">
+          <label>
+            <input type="date" class="input-date" name="limit_date" value="<%= @issue.limit_date %>"/>　
+          </label>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <h2><label>内容:</label></h2>
+        <div class="input-content">
+          <label>
+            <textarea class="content-area" name="content" rows="3"><%= @issue.content %></textarea>
+          </label>
+        </div>
+      </div>
+
+      <hr>
+      <br>
+      <input type="submit" class="btn btn-dark" value="確定">　
+    <% end %>
+    <br><br>
+  </div>
+</div>
