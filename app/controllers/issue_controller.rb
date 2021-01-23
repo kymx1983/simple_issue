@@ -50,4 +50,13 @@ class IssueController < ApplicationController
       render("issue/new")
     end
   end
+
+  def destroy
+    @issue = Issue.find_by(id: params[:id])
+    @issue.destroy
+
+    flash[:notice] = "「#{@issue.title}」を削除しました。"
+
+    redirect_to("/issue/index")
+  end
 end

@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   get 'issue/index'
   get "issue/show/:id" => "issue#show"
   get "issue/edit/:id" => "issue#edit"
+  get "issue/destroy/:id" => "issue#destroy"
   get 'issue/new'
   post "issue/create"
   post "issue/update"
