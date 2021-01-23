@@ -1,2 +1,48 @@
-<h1>Issue#index</h1>
-<p>Find me in app/views/issue/index.html.erb</p>
+<div class="main">
+
+  <%= form_tag("/task/search") do %>
+    <div class="form-group">
+      <div class="input-content">
+        <label>
+          日付：<input type="date" class="input-date" name="search_date" value="<%= @limit_date %>"/>
+        </label>
+        <lavel>
+          <input type="checkbox" id="input-check" name="close_display">
+          <label for="close_display">完了したタスクを表示する</label>
+        </lavel>
+        <br><br>
+        <input type="submit" class="btn-flat-border" value="検索">
+      </div>
+    </div>
+  <% end %>
+
+  <% @issues.each do |issue| %>
+    <div class="container_card">
+      <h1>
+        <%= issue.title %>
+      </h1>
+
+      <div class="input-content">
+        <%= simple_format(h(issue.content)) %>
+      </div>
+
+      <br>
+
+      <wrap class="">
+        <%= link_to("詳細", "/issue/show/#{issue.id}") %>
+      </wrap>
+      <wrap class="link-button">
+        <%= link_to("編集", "/issue/edit/#{issue.id}") %>
+      </wrap>
+      <wrap class="link-button">
+        <%= link_to("削除", "/issue/destroy/#{issue.id}") %>
+      </wrap>
+    </div>
+  <% end %>
+
+
+  <wrap class="link-button">
+    <%= link_to("新規登録", "/issue/new") %>
+  </wrap>
+
+</div>
