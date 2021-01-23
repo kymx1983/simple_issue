@@ -1,2 +1,61 @@
-<h1>Issue#show</h1>
-<p>Find me in app/views/issue/show.html.erb</p>
+<div class="main">
+  <div class="container">
+    <h1>イシュー詳細</h1>
+    <div class="form-group">
+      <h2><label>タイトル:</label></h2>
+      <div class="input-content">
+        <%= @issue.title %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <h2><label>期限:</label></h2>
+      <div class="input-content">
+        <%= @issue.limit_date %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <h2><label>内容:</label></h2>
+      <div class="input-content">
+        <%= @issue.content %>
+      </div>
+    </div>
+
+    <hr>
+    <br>
+    <wrap class="link-button">
+      <%= link_to("編集", "/task/edit/#{@issue.id}") %>
+    </wrap>
+
+    <wrap class="link-button">
+      <%= link_to("削除", "/task/destroy/#{@issue.id}") %>
+    </wrap>
+    <br><br>
+    <hr>
+    <br>
+    <div class="form-group">
+      <h2><label>コメント:</label></h2>
+      <%= form_tag("/comment/create") do %>
+        <input type="hidden" class="input-text" name="comment_type" value="1"/>
+        <input type="hidden" class="input-text" name="id" value="<%= @issue.id %>"/>
+        <div class="input-content">
+          <label>
+            <textarea class="content-area" name="comment" rows="3"></textarea>
+            <br>
+            <input type="submit" class="btn btn-dark" value="書き込む">
+          </label>
+        </div>
+      <% end %>
+      <br>
+      <hr>
+      <%# @comments.each do |comment| %>
+<!--        <div><%#= comment.comment %></div>-->
+<!--        <hr>-->
+      <%# end %>
+
+
+    </div>
+    <br><br>
+  </div>
+</div>

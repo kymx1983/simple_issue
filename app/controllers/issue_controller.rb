@@ -4,6 +4,7 @@ class IssueController < ApplicationController
   end
 
   def show
+    @issue = Issue.find_by(id: params[:id])
   end
 
   def new
