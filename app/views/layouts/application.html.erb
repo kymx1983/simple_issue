@@ -1,15 +1,40 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>SimpleIssue</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+<html lang="">
+<head>
+  <title>SimpleIssue</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
 
-  <body>
-    <%= yield %>
-  </body>
+<body>
+<header>
+  <ul>
+    <% if @current_user %>
+      <li><%= link_to("#{@current_user.user_name} さん", "/user/show/#{@current_user.id}") %></li>
+      <li><%= link_to("ログアウト", "/logout/") %></li>
+      <li><%= link_to("イシュー", "/routine/index") %></li>
+      <li><%= link_to("Top", "/") %></li>
+    <% else %>
+      <li><%= link_to("ユーザ登録", "/user/new") %></li>
+      <li><%= link_to("ログイン", "/login") %></li>
+      <li><%= link_to("Top", "/login") %></li>
+    <% end %>
+  </ul>
+</header>
+
+<% if flash[:notice] %>
+  <div class="flash_notice">
+    <%= flash[:notice] %>
+  </div>
+<% elsif flash[:alert] %>
+  <div class="flash_alert">
+    <%= flash[:alert] %>
+  </div>
+<% end %>
+<%= yield %>
+</body>
 </html>
