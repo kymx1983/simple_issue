@@ -1,0 +1,31 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  content: MyText
+  user_id: 1
+  limit_date: 2021-01-23
+  status: 
+  generate: MyString
+  model: MyString
+  issue: MyString
+  title: MyString
+  content: MyText
+  user_id: 1
+  limit_date: 2021-01-23
+  status: 1
+
+two:
+  title: MyString
+  content: MyText
+  user_id: 1
+  limit_date: 2021-01-23
+  status: 
+  generate: MyString
+  model: MyString
+  issue: MyString
+  title: MyString
+  content: MyText
+  user_id: 1
+  limit_date: 2021-01-23
+  status: 1
